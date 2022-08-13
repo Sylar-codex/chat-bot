@@ -12,6 +12,7 @@ def message_probability(user_message, recognised_words, single_response=False, r
     #calculates the percent of recognised words in a user message
     percentage = float(message_certainty) / float(len(recognised_words))
 
+
     for word in required_words :
         if word not in user_message:
             has_required_words = False
@@ -36,7 +37,6 @@ def check_all_messages(message) :
     response(long.R_job, ['where', 'you','do','work', 'job'], required_words=['do','you'])
 
     best_match = max(highest_prob_list, key=highest_prob_list.get)
-    #print(highest_prob_list)
 
     return long.unknown() if highest_prob_list[best_match] < 1 else best_match
 
